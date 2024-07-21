@@ -1,19 +1,19 @@
-import pygame
+# main.py
+
 from jogo import JogoCampoMinado
 
-# Configurações do jogo
 
-LARGURA_TELA = 800
-ALTURA_TELA = 600
-TAMANHO_CELULA = 40
-NUM_MINAS = 40
+largura_tela=400
+altura_tela=400
+tamanho_celula=40
+num_minas=12
+
 
 
 def main():
-    pygame.init()
-    jogo = JogoCampoMinado(LARGURA_TELA, ALTURA_TELA, TAMANHO_CELULA, NUM_MINAS)
-    jogo.interagir()
-    pygame.quit()
+    jogo = JogoCampoMinado(largura_tela, altura_tela, tamanho_celula, num_minas)
+    jogo.campo.criar_bombas(x_inicial=0, y_inicial=0)  # Inicia o jogo criando as bombas
+    jogo.executar()
 
 if __name__ == "__main__":
     main()
