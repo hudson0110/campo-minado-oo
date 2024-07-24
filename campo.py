@@ -40,6 +40,12 @@ class Campo:
                     if 0 <= nx < self.num_celulas_x and 0 <= ny < self.num_celulas_y:
                         self.revelar_celula(nx, ny)
 
+    def revelar_todas_as_bombas(self):
+        for linha in self.campo:
+            for celula in linha:
+                if celula.get_bomba():
+                    celula.set_revelada(True)
+
     def desenhar(self, tela):
         for linha in self.campo:
             for celula in linha:

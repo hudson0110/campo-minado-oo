@@ -39,17 +39,17 @@ class Celula(ObjetoJogo):
 
     def desenhar(self, tela):
         if self._revelada:
-            cor = (255, 255, 255)  # Branco
+            cor = (200, 200, 200)  # Branco
             pygame.draw.rect(tela, cor, self.get_rect())
             if self._numero > 0:
                 fonte = pygame.font.SysFont(None, 36)
                 texto = fonte.render(str(self._numero), True, (0, 0, 0))
                 tela.blit(texto, (self.get_x() * self.get_tamanho() + 10, self.get_y() * self.get_tamanho() + 5))
         else:
-            cor = (200, 200, 200)  # Cinza claro
+            cor = (0, 0, 0)  # Cinza claro
             pygame.draw.rect(tela, cor, self.get_rect())
             if self._marcada:
                 fonte = pygame.font.SysFont(None, 36)
-                texto = fonte.render("|>", True, (0, 0, 0))
+                texto = fonte.render("|^", True, (255, 255, 255))
                 tela.blit(texto, (self.get_x() * self.get_tamanho() + 10, self.get_y() * self.get_tamanho() + 5))
-        pygame.draw.rect(tela, (0, 0, 0), self.get_rect(), 1)  # Contorno preto
+        pygame.draw.rect(tela, (255, 255, 255), self.get_rect(), 1)  # Contorno preto
