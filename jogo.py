@@ -3,6 +3,7 @@ from campo import Campo
 
 class JogoCampoMinado:
     def __init__(self, largura_tela, altura_tela, tamanho_celula, num_minas):
+        # Inicializa o jogo e seus atributos
         pygame.init()
         self.largura_tela = largura_tela
         self.altura_tela = altura_tela
@@ -17,10 +18,12 @@ class JogoCampoMinado:
         self.derrota = False
 
     def __del__(self):
+        # Finaliza o jogo quando o objeto é destruído
         pygame.quit()
         print("Jogo finalizado")
 
     def verificar_vitoria(self):
+        # Verifica se o jogador ganhou o jogo
         for linha in self.campo.campo:
             for celula in linha:
                 if not celula.get_bomba() and not celula.get_revelada():
@@ -28,6 +31,7 @@ class JogoCampoMinado:
         return True
 
     def mostrar_mensagem(self, mensagem):
+        # Exibe uma mensagem na tela
         self.tela.fill((150, 150, 150))
         texto = self.fonte.render(mensagem, True, (255, 255, 255))
         rect = texto.get_rect(center=(self.largura_tela // 2, self.altura_tela // 2))
@@ -36,6 +40,7 @@ class JogoCampoMinado:
         pygame.time.wait(3000)
 
     def executar(self):
+        # Executa o loop principal do jogo
         while self.executando:
             for evento in pygame.event.get():
                 if evento.type == pygame.QUIT:

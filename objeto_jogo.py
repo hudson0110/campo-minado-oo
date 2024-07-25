@@ -1,8 +1,6 @@
 
 import pygame
 
-# Esta é a classe ObjetoJogo, que representa qualquer coisa que você possa desenhar no jogo
-
 class ObjetoJogo:
 
     def __init__(self, x, y, tamanho):
